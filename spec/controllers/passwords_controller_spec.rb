@@ -1,12 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe PasswordsController do
+  let(:user) { {email: 'user@example.com', password: '76$V-+$f:Hhd3zYubs@i'} }
+
   render_views
 
   it 'shows existing passwords' do
-    p = Password.new
+    actor, _ = DoorMat::TestHelper::create_signed_in_actor_with_confirmed_email_address(user[:email], user[:password])
+
+    p = Password.new_w_default
     p.subject = 'secret'
-    allow(Password).to receive(:find).and_return(p)
+    p.actor = actor
+    p.generate
+    p.save
 
     get :show, {id: 1}
 
@@ -16,6 +22,7 @@ RSpec.describe PasswordsController do
   end
 
   it 'redirects to the password index if the requested password is not found' do
+    _, _ = DoorMat::TestHelper::create_signed_in_actor_with_confirmed_email_address(user[:email], user[:password])
     allow(Password).to receive(:find).and_raise(ActiveRecord::RecordNotFound)
 
     get :show, {id: 1}

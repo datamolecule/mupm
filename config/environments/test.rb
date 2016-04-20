@@ -40,3 +40,8 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end
+
+# For test purpose allow DoorMat to send cookies over http
+DoorMat.configure do |config|
+  config.transmit_cookies_only_over_https = false
+end

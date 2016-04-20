@@ -33,6 +33,7 @@ gem 'puma'
 # gem 'capistrano-rails', group: :development
 
 gem 'bootstrap_form'
+gem 'door_mat'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -41,6 +42,8 @@ group :development, :test do
   gem 'rspec-rails'
 
   gem 'database_cleaner'
+
+  gem 'capybara'
 end
 
 group :development do

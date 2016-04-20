@@ -1,5 +1,7 @@
 class Password < ActiveRecord::Base
 
+  belongs_to :actor, class_name: 'DoorMat::Actor'
+
   after_find do |record|
     record.length = record.password.length
   end

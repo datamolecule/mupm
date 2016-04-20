@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get '/passwords/:id' => 'passwords#show', as: 'password'
   delete '/passwords/:id' => 'passwords#destroy'
 
+  mount DoorMat::Engine => "/", as: "door_mat"
+
   match '*path', via: :all, to: 'static#home'
 
   # The priority is based upon order of creation: first created -> highest priority.

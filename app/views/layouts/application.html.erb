@@ -7,11 +7,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<h1 class="text-center"><%= link_to '&mu;PM'.html_safe, root_path, :style => 'color:#000000;' %></h1>
 
-<div class="alert alert-danger text-center" role="alert">This <strong>plain_rails_app</strong> branch
-  has no authentication and no encryption.
-  See the <%= link_to 'about page', about_path, {class: 'alert-link'} %> for details!</div>
+<div class="row">
+  <div class="col-sm-offset-4 col-sm-4">
+    <h1 class="text-center">
+      <%= link_to '&mu;PM'.html_safe, main_app.root_path, :style => 'color:#000000;' %>
+    </h1>
+  </div>
+  <div class="col-sm-4">
+    <% if DoorMat::Session.current_session.valid? %>
+        <h5 class="text-center"><%= DoorMat::Session.current_session.email.address %> -
+          <%= link_to 'Sign Out', door_mat.sign_out_path, {class: "btn btn-default btn-lg", role: "button"} %></h5>
+
+    <% end %>
+  </div>
+</div>
+
+<div class="alert alert-danger text-center" role="alert">This <strong>rails_app_w_authentication</strong> branch
+  has no encryption.
+  See the <%= link_to 'about page', main_app.about_path, {class: 'alert-link'} %> for details!</div>
 
 
 <% flash.each do |type, message| %>

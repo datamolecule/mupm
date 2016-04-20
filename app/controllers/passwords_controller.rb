@@ -1,11 +1,12 @@
 class PasswordsController < ApplicationController
 
   def index
-    @passwords = Password.order(:subject, :created_at)
+    @actor = DoorMat::Session.current_session.actor
+    @passwords = @actor.passwords.order(:subject, :created_at)
   end
 
   def show
-    @password = Password.find(params[:id].to_i)
+    @password = DoorMat::Session.current_session.actor.passwords.find(params[:id].to_i)
   rescue ActiveRecord::RecordNotFound
     flash[:notice] = 'Record not found - The password you requested could not be found'
     redirect_to passwords_url
@@ -18,7 +19,7 @@ class PasswordsController < ApplicationController
   # no edit
 
   def create
-    @password = Password.new(password_params)
+    @password = DoorMat::Session.current_session.actor.passwords.build(password_params)
     if @password.valid? && @password.generate && @password.save
       flash[:notice] = 'New password created'
       redirect_to password_path(@password)
@@ -30,7 +31,7 @@ class PasswordsController < ApplicationController
   # no update
 
   def destroy
-    @password = Password.find(params[:id].to_i)
+    @password = DoorMat::Session.current_session.actor.passwords.find(params[:id].to_i)
     @password.destroy
     flash[:notice] = 'Password was deleted'
 
