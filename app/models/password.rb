@@ -1,6 +1,9 @@
 class Password < ActiveRecord::Base
+  include DoorMat::AttrSymmetricStore
 
   belongs_to :actor, class_name: 'DoorMat::Actor'
+
+  attr_symmetric_store :subject, :password
 
   after_find do |record|
     record.length = record.password.length
