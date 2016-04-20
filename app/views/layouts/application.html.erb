@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>&mu;PM</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<h1 class="text-center"><%= link_to '&mu;PM'.html_safe, root_path, :style => 'color:#000000;' %></h1>
+
+<div class="alert alert-danger text-center" role="alert">This <strong>plain_rails_app</strong> branch
+  has no authentication and no encryption.
+  See the <%= link_to 'about page', about_path, {class: 'alert-link'} %> for details!</div>
+
+
+<% flash.each do |type, message| %>
+    <div class="alert <%= bootstrap_class_for(type) %> fade in text-center">
+      <%= message %>
+    </div>
+<% end %>
+
+<div class="container-fluid">
+  <%= yield %>
+</div>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="row text-center" style="padding: 20px;">
+      <nav class="col-sm-6">
+        &mu;PM &trade; is a trademark of <a href="http://datamolecule.com">Data Molecule Inc.</a> &copy; 2016.
+      </nav>
+      <nav class="col-sm-6"><%= link_to 'About &mu;PM'.html_safe, main_app.about_path %></nav>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

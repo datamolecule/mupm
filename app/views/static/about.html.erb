@@ -1,0 +1,36 @@
+<h1 id="-mu-pm">&mu;PM</h1>
+<p>Micro Password Manager</p>
+<p>&mu;PM is a Free, Web-Based Password Manager!</p>
+<p>Need a simple password manager that is freely accessible on the Web? Create a free account!
+  You prefer to run your own server for personal use? Checkout &mu;PM on GitHub and spin up your own instance!</p>
+<h3 id="is-it-safe-">Is it safe?</h3>
+<p>&mu;PM was developed with security in mind. However, nothing we do, from crossing the street to riding a bus, is <em>absolutely</em> safe. &mu;PM is a relatively simple web application built on top of the DoorMat library with the safety of user information in mind. The very worse someone can do when it comes to security online is reusing the same weak password across several sites. Using a password manager like &mu;PM or one of many other available password manager applications is a step in the right direction.</p>
+<p>As a matter of transparency and because security should be conducted in the open, the entire &mu;PM Rails application is open to scrutiny. Although &mu;PM is not &quot;Open Source&quot;, the source code of the application is available for anybody to inspect and experiment with.</p>
+<p>If you believe you have found a security problem either with &mu;PM, the underlying DoorMat library or something else in the environment, please get in touch with the author!</p>
+<h3 id="what-is-the-doormat-library-">What is the DoorMat library?</h3>
+<p>The purpose of the DoorMat library is to provide a turnkey solution that handles both the user authentication as well as the encryption of user information using standard cryptographic libraries available to the ruby runtime environment. Although DoorMat is flexible and supports a variety of information sharing scenarios, its most basic configuration is such that <em>in the normal course of business</em>, the system operator does not have access to the user information held in the cryptographic store.</p>
+<h2 id="sample-doormat-library-integration">Sample DoorMat library integration</h2>
+<p>&mu;PM also serves as a DoorMat sample integration demo. The following tags illustrate the initial integration steps:</p>
+<ul>
+  <li><code>plain_rails_app</code> - this is a toy Rails application without user authentication. All passwords are visible to anybody;</li>
+  <li><code>rails_app_w_authentication</code> - at this stage, DoorMat is added, passwords are tied to specific actors but they are stored in plain text in the database;</li>
+  <li><code>rails_app_w_authentication_and_encryption</code> - encryption is added.</li>
+</ul>
+<h2 id="local-development-environment-setup">Local development environment setup</h2>
+<p>For ease of deployment on Heroku, &mu;PM is setup to use the Puma webserver and Postgres database. Beyond this, nothing in the stack is Heroku specific.</p>
+<p>To deploy &mu;PM locally, make sure you have Ruby 2.2.3 (or adjust the Gemfile accordingly), Postgres and the mailcatcher gem installed.</p>
+<p>Create a .env file with the following entries.</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="source shell"><span>LANG=en_US.UTF-8</span></span></div><div class="line"><span class="source shell"><span>RACK_ENV=development</span></span></div><div class="line"><span class="source shell"><span>RAILS_ENV=development</span></span></div><div class="line"><span class="source shell"><span>DOMAIN=localhost:3000</span></span></div><div class="line"><span class="source shell"><span>PUMA_WORKERS=1</span></span></div><div class="line"><span class="source shell"><span>MAX_THREADS=5</span></span></div><div class="line"><span class="source shell"><span>PORT=3000</span></span></div><div class="line"><span class="source shell"><span>SECRET_KEY_BASE=&nbsp;</span><span class="keyword operator redirect shell"><span>&lt;</span></span><span>---&nbsp;generate&nbsp;your&nbsp;own&nbsp;key&nbsp;using&nbsp;</span><span class="string quoted single shell"><span class="punctuation definition string begin shell"><span>&#39;</span></span><span>bundle&nbsp;exec&nbsp;rake&nbsp;secret</span><span class="punctuation definition string end shell"><span>&#39;</span></span></span><span>&nbsp;---</span><span class="keyword operator redirect shell"><span>&gt;</span></span></span></div><div class="line"><span class="source shell"><span>MAILER_EMAIL_ADDRESS=noreply@example.com</span></span></div><div class="line"><span class="source shell"><span>FORCE_SSL=FALSE</span></span></div></pre>
+<p>Finally, run <code>bundle install</code>, <code>RAILS_ENV=development bundle exec rake db:drop db:create db:migrate</code>, then bring up a web server with <code>foreman start</code> and a mail server with <code>mailcatcher -f</code>.</p>
+<h2 id="license">License</h2>
+<p>Copyright &copy; 2016 Luc Lussier</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png"></a><br><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type">&mu;PM Micro Password Manager</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.datamolecule.com/" property="cc:attributionName" rel="cc:attributionURL">Luc Lussier</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.<br>Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/luclussier" rel="dct:source">https://github.com/luclussier</a>.</p>
+<p>The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.</p>

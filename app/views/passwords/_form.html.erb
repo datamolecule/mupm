@@ -1,0 +1,13 @@
+
+<%= bootstrap_form_for(password, url: passwords_path, layout: :horizontal) do |f| %>
+    <%= f.text_field :subject, label: "For", value: '', size: 50, maxlength: 50, control_col: "col-sm-8" %>
+    <%= f.text_field :length, size: 4, maxlength: 2, control_col: "col-sm-2" %>
+    <%= f.form_group label: { text: "Including" } do %>
+        <%= f.check_box :capital %>
+        <%= f.check_box :numeric %>
+        <%= f.check_box :special %>
+    <% end %>
+    <%= f.form_group do %>
+        <%= f.submit 'Create' %>
+    <% end %>
+<% end %>

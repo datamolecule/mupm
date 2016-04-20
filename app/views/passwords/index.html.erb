@@ -1,0 +1,11 @@
+<ol class="breadcrumb">
+  <li class="active">Passwords</li>
+</ol>
+
+<ul class="list-unstyled">
+<% @passwords.each do |p| %>
+  <li><%= link_to p.subject, p %></li>
+<% end %>
+</ul>
+
+<%= link_to 'Create a new password', new_password_path, {class: "btn btn-default btn-lg", role: "button"} %>

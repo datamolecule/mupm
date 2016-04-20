@@ -1,0 +1,6 @@
+<ol class="breadcrumb">
+  <li><%= link_to('Back to Passwords', passwords_path, :style => 'color:#000000;') %></li>
+  <li class="active">Create a new password</li>
+</ol>
+
+<%= render partial: 'passwords/form', locals: {password: @password} %>

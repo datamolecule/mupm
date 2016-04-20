@@ -1,0 +1,12 @@
+<ol class="breadcrumb">
+  <li><%= link_to('Back to Passwords', passwords_path, :style => 'color:#000000;') %></li>
+  <li class="active"><%= @password.subject %></li>
+</ol>
+
+<blockquote>
+  <p><samp><%= @password.password %></samp></p>
+</blockquote>
+
+<%= bootstrap_form_for(@password, url: password_path, method: :delete, inline_errors: false) do |f| %>
+    <%= f.submit 'Delete', class: "btn btn-default btn-lg btn-danger" %>
+<% end %>
