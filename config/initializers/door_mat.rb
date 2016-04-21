@@ -13,8 +13,12 @@ DoorMat.configure do |config|
 
   config.sign_in_success_url = [:main_app, :passwords_url]
   config.sign_up_success_url = [:main_app, :passwords_url]
+  config.add_email_success_url = [:main_app, :passwords_url]
   config.confirm_email_success_url = [:main_app, :passwords_url]
+  config.change_password_success_url = [:main_app, :passwords_url]
   config.sign_out_success_url = [:main_app, :root_url]
+
+  config.allow_remember_me_feature = true
 
   config.mailer_from_address = Rails.application.secrets.mailer_address
 

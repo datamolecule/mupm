@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: password_manager_production
-  username: password_manager
-  password: <%= ENV['PASSWORD_MANAGER_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>

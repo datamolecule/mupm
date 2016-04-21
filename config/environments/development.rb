@@ -48,3 +48,6 @@ end
 DoorMat.configure do |config|
   config.transmit_cookies_only_over_https = false
 end
+
+Rails.application.routes.default_url_options[:host] = ENV['DOMAIN']
+DoorMat::Engine.routes.default_url_options[:host] = ENV['DOMAIN']

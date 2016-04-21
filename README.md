@@ -36,7 +36,7 @@ MAILER_EMAIL_ADDRESS=noreply@example.com
 FORCE_SSL=FALSE
 ```
 
-Finally, run `bundle install`, `RAILS_ENV=development bundle exec rake db:drop db:create db:migrate`, then bring up a web server with `foreman start` and a mail server with `mailcatcher -f`.
+Finally, run `bundle install`, `RAILS_ENV=development bundle exec rake db:drop db:create`, `RAILS_ENV=development bundle exec rake db:migrate`, then bring up a web server with `foreman start` and a mail server with `mailcatcher -f`.
 
 
 ## License
