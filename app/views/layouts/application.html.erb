@@ -23,21 +23,15 @@
   </div>
 </div>
 
-<div class="alert alert-success text-center" role="alert">This <strong>rails_app_w_authentication_and_encryption</strong> branch
-  has both authentication and encryption.
-  See the <%= link_to 'about page', main_app.about_path, {class: 'alert-link'} %> for details!</div>
-
-
 <% flash.each do |type, message| %>
     <div class="alert <%= bootstrap_class_for(type) %> fade in text-center">
       <%= message %>
     </div>
 <% end %>
 
-<div class="container-fluid">
+<div class="container-fluid" style="margin-top: 55px">
   <%= yield %>
 </div>
-
 
 <footer class="footer">
   <div class="container">
@@ -49,6 +43,7 @@
     </div>
   </div>
 </footer>
+</div>
 
 </body>
 </html>

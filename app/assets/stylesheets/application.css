@@ -15,3 +15,7 @@
  *= require_tree .
  *= require_self
  */
+
+.borderless tbody tr td {
+    border: none;
+}

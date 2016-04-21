@@ -3,10 +3,20 @@
   <li class="active"><%= @password.subject %></li>
 </ol>
 
-<blockquote>
-  <p><samp><%= @password.password %></samp></p>
-</blockquote>
+<div class="row">
+  <div class="col-md-offset-4 col-md-4">
+    <div class="panel panel-default text-center">
+      <div class="panel-body">
 
-<%= bootstrap_form_for(@password, url: password_path, method: :delete, inline_errors: false) do |f| %>
-    <%= f.submit 'Delete', class: "btn btn-default btn-lg btn-danger" %>
-<% end %>
+        <blockquote>
+          <p><samp><%= @password.password %></samp></p>
+        </blockquote>
+
+        <%= bootstrap_form_for(@password, url: password_path, method: :delete, inline_errors: false) do |f| %>
+            <%= f.submit 'Delete', class: "btn btn-default btn-lg btn-danger", data: { confirm: "Are you sure you want to delete this password?" } %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

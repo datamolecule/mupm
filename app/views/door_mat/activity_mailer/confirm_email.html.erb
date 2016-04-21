@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #FFF3E3">
+  <tbody>
+  <tr>
+    <td align="center" style="padding: 50px">
+      <table border="0" cellpadding="0" cellspacing="0" width="90%">
+        <tbody>
+
+
+        <tr>
+          <td align="center" style="padding: 30px;">
+            <%= link_to 'Welcome to &mu;PM!'.html_safe, main_app.root_url, :style => 'color: #000000; text-decoration: none; font-size: 45px' %>
+          </td>
+        </tr>
+        <tr>
+          <td align="center" style="font-size: 20px;">
+            <%= @parameters[:address] %> was added to your account!<br/>
+            Click below to confirm:
+          </td>
+        </tr>
+        <tr>
+          <td align="center" style="padding: 20px">
+            <table border="0" cellpadding="0" cellspacing="0" style="background-color: #FF9500; border-radius: 5px">
+              <tbody><tr><td align="center">
+                <%= link_to 'Confirm', @parameters[:url], {style: "color: #FFFFFF; text-decoration: none; padding: 20px 30px; font-size: 35px"} %>
+              </td></tr></tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td align="center" style="padding: 20px; font-size: small">
+            You can also copy and paste the link below into your browser:<br/>
+            <%= link_to @parameters[:url], @parameters[:url] %>
+          </td>
+        </tr>
+        <tr>
+          <td align="center" style="font-size: small">
+            &copy; 2016 <a href="http://datamolecule.com">Data Molecule Inc.</a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

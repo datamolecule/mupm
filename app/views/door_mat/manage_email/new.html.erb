@@ -1,0 +1,27 @@
+<ol class="breadcrumb">
+  <li><%= link_to('Back to Passwords', main_app.passwords_path, :style => 'color:#000000;') %></li>
+  <li class="active">Add email</li>
+</ol>
+
+<div class="row">
+  <div class="col-md-offset-4 col-md-4">
+    <div class="panel panel-default text-center">
+      <div class="panel-body">
+
+        <%= form_for(@email, url: add_email_path) do |f| %>
+            <%= render 'door_mat/helpers/errors_if_any', {object: @email} %>
+
+            <div class="field">
+              <%= f.label :address %><br>
+              <%= f.text_field :address %>
+            </div>
+
+            <div class="actions" style="margin-top: 15px">
+              <%= f.submit t("door_mat.manage_email.add_button"), {class: "btn btn-default btn-sm text-center", role: "button"} %>
+            </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

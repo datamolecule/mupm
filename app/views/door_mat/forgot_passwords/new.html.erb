@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-offset-4 col-md-4">
+    <div class="panel panel-default text-center">
+      <div class="panel-body">
+        <h1>Forgot Your Password?</h1>
+
+        <%= form_for(@forgot_password, url: forgot_password_path) do |f| %>
+            <%= render 'door_mat/helpers/errors_if_any', {object: @forgot_password} %>
+
+            <div class="field">
+              <%= f.label :email %><br>
+              <%= f.text_field :email %>
+            </div>
+
+            <div class="actions", style="margin-top: 15px">
+              <%= f.submit t("door_mat.forgot_password.submit_button"), {class: "btn btn-default btn-lg", role: "button"} %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-offset-3 col-md-6">
+    <div class="panel panel-default text-center">
+      <div class="panel-body">
+
+        <h1>Reconfirm Password</h1>
+
+        <% if @current_session_email.blank? %>
+            <p>Please type in your password one more time:</p>
+        <% else %>
+            <p>Please type in the <%= @current_session_email %> password one more time:</p>
+        <% end %>
+
+        <%= form_tag(door_mat.reconfirm_password_path) do %>
+            <%= password_field_tag %>
+            <%= submit_tag("Reconfirm", {class: "btn btn-default btn-sm text-center", role: "button", style: "margin: 15px"}) %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

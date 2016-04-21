@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-md-offset-4 col-md-4">
+    <div class="panel panel-default text-center">
+      <div class="panel-body">
+        <h1>Sign Up</h1>
+
+        <%= form_for(@sign_up, url: sign_up_path) do |f| %>
+            <%= render 'door_mat/helpers/errors_if_any', {object: @sign_up} %>
+
+            <div class="field">
+              <%= f.label :email %><br>
+              <%= f.text_field :email %>
+            </div>
+            <div class="field">
+              <%= f.label :password %><br>
+              <%= f.password_field :password %>
+            </div>
+            <div class="field">
+              <%= f.label :password_confirmation %><br>
+              <%= f.password_field :password_confirmation %>
+            </div>
+
+            <div class="actions", style="margin-top: 15px">
+              <%= f.submit t("door_mat.sign_up.submit_button"), {class: "btn btn-default btn-lg", role: "button"} %>
+            </div>
+        <% end %>
+
+        <p>Already have an account? <%= link_to 'Sign In', sign_in_path %></p>
+      </div>
+    </div>
+  </div>
+</div>

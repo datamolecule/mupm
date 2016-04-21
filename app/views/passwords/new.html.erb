@@ -3,4 +3,14 @@
   <li class="active">Create a new password</li>
 </ol>
 
-<%= render partial: 'passwords/form', locals: {password: @password} %>
+<div class="row">
+  <div class="col-md-offset-2 col-md-8">
+    <div class="panel panel-default text-center">
+      <div class="panel-body">
+
+        <%= render partial: 'passwords/form', locals: {password: @password} %>
+
+      </div>
+    </div>
+  </div>
+</div>
