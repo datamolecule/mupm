@@ -9,6 +9,8 @@ end
 
 # Override DoorMat lib/door_mat/configuration.rb defaults
 DoorMat.configure do |config|
+  config.define_door_mat_routes = false
+
   config.sign_in_success_url = [:main_app, :passwords_url]
   config.sign_up_success_url = [:main_app, :passwords_url]
   config.confirm_email_success_url = [:main_app, :passwords_url]
